@@ -1,28 +1,31 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    make                                               :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jsarkis <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: camurray <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/02/27 15:58:55 by jsarkis           #+#    #+#              #
-#    Updated: 2019/02/27 21:11:39 by ldu-pree         ###   ########.fr        #
+#    Created: 2019/01/30 00:23:26 by camurray          #+#    #+#              #
+#    Updated: 2019/01/30 10:47:58 by camurray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-SRCS = srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c srcs/ft_strlen.c srcs/ft_swap.c
-OUT = ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
-INCLUDES = includes/
+NAME = eval_expr
+SRC = srcs/main.c srcs/print.c srcs/ft_string.c
+OUT = main.o print.o ft_string.o
+HEADER = includes/
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+
 $(NAME):
-	gcc $(FLAGS) -c $(SRCS) -I $(INCLUDES)
-	ar rc $(NAME) $(OUT)
-	ranlib $(NAME)
+	gcc -c $(FLAGS) $(SRC) -I$(HEADER)
+	gcc $(FLAGS) $(OUT) -o $(NAME)
+
 clean:
 	/bin/rm -f $(OUT)
+
 fclean: clean
 	/bin/rm -f $(NAME)
+
 re: fclean all

@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reader.c                                           :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbarnard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: camurray <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/28 00:39:44 by hbarnard          #+#    #+#             */
-/*   Updated: 2019/02/28 01:11:05 by hbarnard         ###   ########.fr       */
+/*   Created: 2019/01/30 10:51:05 by camurray          #+#    #+#             */
+/*   Updated: 2019/01/30 10:51:17 by camurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi(char *str);
-int calculate(int a, int b, char c);
+#include "header.h"
 
-int	reader(char *c)
+void	ft_putstr(char *str)
 {
-	int		a;
-	int		b;
-	char	n;
-	int 	i;
+	char *c;
+
+	c = str;
+	while (*c != '\0')
+	{
+		ft_putchar(*c);
+		c++;
+	}
+}
+
+int		ft_strcmp(char *s1, char *s2)
+{
+	int	i;
 
 	i = 0;
-	a = atoi(c, i);
-	while (c[i] <= '9' && c[i] >= '0')
+	while (s1[i] || s2[i])
+	{
+		if ((s1[i] - s2[i]) != 0)
+			return (s1[i] - s2[i]);
 		i++;
-	n = c[i++];
-	b = atoi(c, i);
-	return (calculate(a, b, n));
+	}
+	return (0);
 }
